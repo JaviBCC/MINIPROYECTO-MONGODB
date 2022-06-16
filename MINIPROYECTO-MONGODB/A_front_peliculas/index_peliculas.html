@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="notas.css">
+
+    <title>MONSTER UNIVERSITY</title>
+</head>
+<body> 
+
+  <form class="row g-3 needs-validation" novalidate>  
+    <div class="container-fluid"> 
+      <nav class="navbar" style="background-color: #e3f2fd;">
+          <a class="nav-link active" aria-current="page" href="../A_front_Alumnos/index_alumnos.html"><img class = "mostrar" src="../img/logo.png" alt="" width="95" height="44"></a>
+          <a class="nav-link active" aria-current="page" href="../A_front_notas/index_notas.html"><img class = "notas" src="../img/notas.png"  alt="" width="95" height="44"></a>
+          <a class="nav-link active" aria-current="page" href="../A_front_Consultas/index_consultas.html"><img class = "notas" src="../img/consultas.png"  alt="" width="95" height="44"></a>
+
+
+          <form class="d-flex" role="search">
+            <button class="btn btn-outline-success" type="reset" onclick = "getNotas()">Mostrar</button>
+            <button class="btn btn-outline-success" type="reset" onclick = "postNotas()">Crear</button>
+            <button class="btn btn-outline-success" type="reset" onclick = "putNotas()">Actualizar</button>
+            <button class="btn btn-outline-success" type="reset" onclick = "deleteNotas()">Eliminar</button>
+          </form> 
+      </nav>
+    </div>
+  </form>
+
+
+    <div class="contenedor-general" id="container1">
+
+      <div class="col-md-6 col-md-offset-3" id="colorDiv">
+          <div class="col-md-6 col-md-offset-3" id="innerDiv">
+
+            <div class = "contenedor-arriba">
+
+              <div class = "contenedor-izquierdo">
+
+                  <form class = "form-profesionales">
+                      <div class="page-header">
+                        <h2>NOTAS</h2>
+                      </div>
+
+                      <!-- <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Mark ID"  aria-label="Mark ID" aria-describedby="button-addon2" id = "mark_id">
+                      </div> -->
+                    
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Student ID"  aria-label="Last Name" aria-describedby="button-addon2" id = "id">
+                      </div>
+
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Subject ID"  aria-label="Subject ID" aria-describedby="button-addon2" id = "subject_id">
+                      </div>
+
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Date"  aria-label="Date" aria-describedby="button-addon2" id = "date">
+                      </div>
+
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Mark"  aria-label="Date" aria-describedby="button-addon2" id = "mark">
+                      </div>
+
+                      <!-- <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Student Id"  aria-label="Student Id" aria-describedby="button-addon2" id = "id">
+                      </div> -->
+
+                     
+
+                      <!-- <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Group Id"  aria-label="Group Id" aria-describedby="button-addon2" id = "height">
+                      </div> -->
+
+                      <!-- <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="ID"  aria-label="ID" aria-describedby="button-addon2" id = "id">
+                      </div> -->
+
+                  </form>
+              </div>
+
+              
+
+              <div class = "contenedor-derecho">
+                  
+                  <div class ="displayNotas">
+
+                      <div id = "displayJson"></div>
+                      <!-- <div id = "displayJson2"></div> -->
+                  </div>
+              </div>
+                  
+             
+            </div>
+
+                        
+          </div>
+      </div>    
+   </div>
+
+
+
+
+
+
+
+      <div id = "toast" class="toast position-fixed top-0 end-0 p-3 align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+          <div id ="toastText" class="toast-body">
+          </div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+      </div>
+
+       <!-- SCRIPTS BOOTSTRAP-->
+       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+      <!-- ENLACE JAVASCRIPT-->
+      <!-- <script src ="./classProfesional.js"></script> -->
+      <script src="../A_front_notas/notas.js"></script>   
+
+     
+</body>
+</html>
