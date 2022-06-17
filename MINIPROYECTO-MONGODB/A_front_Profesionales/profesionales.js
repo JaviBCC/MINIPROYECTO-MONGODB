@@ -1,23 +1,42 @@
-class Alumnos {
-    first_name;
-    last_name;
-    income_year;
-    student_id
 
-    constructor(first_name, last_name, income_year, student_id) {
-            this.first_name   = first_name;
-            this.last_name    = last_name;
-            this.income_year  = income_year;
-            this.student_id   = student_id;
-           
+class Profesionales {
+    name;
+    age;
+    genre;
+    weight;
+    height;
+    hairColor;
+    eyeColor;
+    race;
+    isRetired;
+    nationality;
+    oscarsNumber;
+    profession;
+
+    constructor(name, age, genre, weight, height, hairColor, eyeColor, race, isRetired, nationality, oscarsNumber,profession) {
+        this.name           = name;
+        this.age            = age;
+        this.genre          = genre;
+        this.weight         = weight;
+        this.height         = height;
+        this.hairColor      = hairColor;
+        this.eyeColor       = eyeColor;
+        this.race           = race;
+        this.isRetired      = isRetired;  
+        this.nationality    = nationality;
+        this.oscarsNumber   = oscarsNumber;
+        this.profession     = profession;
+
     }
+
 }
+    
 
 
 
-function getAlumnos() {
+function getProfesionales() {
 
-    let newAlumno   = "";
+    let newProfesional   = "";
 
 
     let id = document.getElementById("id").value;
@@ -25,12 +44,12 @@ function getAlumnos() {
 
     if(id){
 
-        url = `http://localhost:3000/alumnos/${id}`;
+        url = `http://localhost:3000/profesionales/${id}`;
         console.log(url);
 
     } else {
 
-        url =`http://localhost:3000/alumnos`
+        url =`http://localhost:3000/profesionales`
 
     }
 
@@ -63,16 +82,22 @@ function getAlumnos() {
 
                     console.log("Paso por For" + i)
 
-                    newAlumno += ` <h4 class = "h4_datRes">Alumno</h4>
 
+                    newProfesional += ` <h4 class = "h4_datRes">PROFESIONALES</h4>
                                     <ul>
-                                        <li>First Name:     ${result[i].first_name}</li>
-                                        <li>Last Name:      ${result[i].last_name}</li>
-                                        <li>Income Year:    ${result[i].income_year}</li>
-                                        <li>Student ID:     ${result[i].student_id}</li>
-                                        <br>
+                                        <li>Name:           ${result[i].name}</li>
+                                        <li>Age:            ${result[i].age}</li>           
+                                        <li>Genre:          ${result[i].genre}</li>
+                                        <li>Weight:         ${result[i].weight}</li>
+                                        <li>Height:         ${result[i].height}</li>
+                                        <li>HairColor:      ${result[i].hairColor}</li>
+                                        <li>EyeColor:       ${result[i].eyeColor}</li>
+                                        <li>Race:           ${result[i].race}</li>
+                                        <li>IsRetired:      ${result[i].isRetired}</li>
+                                        <li>Nationality:    ${result[i].nationality}</li>    
+                                        <li>OscarsNumber:   ${result[i].oscarsNumber}</li>
+                                        <li>Profession:     ${result[i].profession}</li>
                                     </ul> `
-
 
                 }
                                                  
@@ -81,21 +106,28 @@ function getAlumnos() {
                     console.log("Voy a imprimir un solo elemento")
                     console.log(result);
                     
-                    newAlumno = ` <h4 class = "h4_datRes">Alumno</h4> 
+                    newProfesional = ` <h4 class = "h4_datRes">PROFESIONALES</h4> 
 
                                     <ul>
-                                        <li>First Name:     ${result.first_name}</li>
-                                        <li>Last Name:      ${result.last_name}</li>
-                                        <li>Income Year:    ${result.income_year}</li>
-                                        <li>Student ID:     ${result.student_id}</li>
-                                        <br>
+                                        <li>Name:           ${result.name}</li>
+                                        <li>Age:            ${result.age}</li>           
+                                        <li>Genre:          ${result.genre}</li>
+                                        <li>Weight:         ${result.weight}</li>
+                                        <li>Height:         ${result.height}</li>
+                                        <li>HairColor:      ${result.hairColor}</li>
+                                        <li>EyeColor:       ${result.eyeColor}</li>
+                                        <li>Race:           ${result.race}</li>
+                                        <li>IsRetired:      ${result.isRetired}</li>
+                                        <li>Nationality:    ${result.nationality}</li>    
+                                        <li>OscarsNumber:   ${result.oscarsNumber}</li>
+                                        <li>Profession:     ${result.profession}</li>
                                     </ul> `
 
                                              
             }
                        
-            console.log(newAlumno);
-            document.getElementById('displayJson').innerHTML = newAlumno;
+            console.log(newProfesional);
+            document.getElementById('displayJson').innerHTML = newProfesional;
     
                 
             })
@@ -112,9 +144,20 @@ function postAlumnos() {
 
     console.log("Entro en POST")
 
-    let newAlumno = new Alumnos(document.getElementById("first_name").value,
-                                document.getElementById("last_name").value,
-                                document.getElementById("income_year").value)
+    let newProfesional = new Profesional(document.getElementById("name").value,
+                                         document.getElementById("age").value,
+                                         document.getElementById("").value,
+                                         document.getElementById("").value,
+                                         document.getElementById("").value,
+                                         document.getElementById("").value,
+                                         document.getElementById("").value,
+                                         document.getElementById("").value,
+                                         document.getElementById("").value,
+                                         document.getElementById("").value,
+                                         document.getElementById("").value,
+                                         document.getElementById("").value,
+                                         document.getElementById("").value,
+                                         document.getElementById("").value)
                                
                            
                             
@@ -159,147 +202,147 @@ function postAlumnos() {
 }
 
 
-function putAlumnos() {
+// function putAlumnos() {
 
-    let id = document.getElementById("id").value;
+//     let id = document.getElementById("id").value;
 
-    const url = `http://localhost:3000/alumnos/?id=${id}`
+//     const url = `http://localhost:3000/alumnos/?id=${id}`
   
-    console.log("Indice del PUT");
+//     console.log("Indice del PUT");
       
   
-    let auxPut = 
-                    {first_name:      document.getElementById("first_name").value,
-                     last_name:       document.getElementById("last_name").value,
-                     student_id:      document.getElementById("id").value
-                    }
+//     let auxPut = 
+//                     {first_name:      document.getElementById("first_name").value,
+//                      last_name:       document.getElementById("last_name").value,
+//                      student_id:      document.getElementById("id").value
+//                     }
 
 
-    let param = 
-                {
-                    headers: {"Content-type":   "application/json; charset= UTF-8"},
-                    body: JSON.stringify(auxPut),
-                    method: "PUT"
-                }
+//     let param = 
+//                 {
+//                     headers: {"Content-type":   "application/json; charset= UTF-8"},
+//                     body: JSON.stringify(auxPut),
+//                     method: "PUT"
+//                 }
     
-    console.log(id);
-    console.log(auxPut);
-    console.log(url);
-    console.log(param);
+//     console.log(id);
+//     console.log(auxPut);
+//     console.log(url);
+//     console.log(param);
 
-    fetch(url, param)
+//     fetch(url, param)
 
-        .then(function(data) {
+//         .then(function(data) {
 
-            return data.json()
+//             return data.json()
            
-        })
+//         })
 
-        .then(function(result) {
+//         .then(function(result) {
 
-            if (result.error)
-                showToast("ERROR:" + result.mensaje, "bg-danger")
-            else
+//             if (result.error)
+//                 showToast("ERROR:" + result.mensaje, "bg-danger")
+//             else
 
-            showToast("Usuario actualizado correctamente", "bg-success" )
-                // console.log(newAlumno)
-                // console.log(result)
-        })
+//             showToast("Usuario actualizado correctamente", "bg-success" )
+//                 // console.log(newAlumno)
+//                 // console.log(result)
+//         })
 
-        .catch(function(error) {
-            console.log(error)
-        })
+//         .catch(function(error) {
+//             console.log(error)
+//         })
 
-}
+// }
 
 
-function deleteAlumnos() {
+// function deleteAlumnos() {
 
     
-    let id = document.getElementById("id").value;
+//     let id = document.getElementById("id").value;
 
-    const url = `http://localhost:3000/alumnos/?id=${id}`
+//     const url = `http://localhost:3000/alumnos/?id=${id}`
 
-    console.log("Indice del DELETE");
-    console.log(id)
+//     console.log("Indice del DELETE");
+//     console.log(id)
 
                
-    let auxDelete =  {id:   document.getElementById("id").value,}
+//     let auxDelete =  {id:   document.getElementById("id").value,}
 
-    console.log(auxDelete);
+//     console.log(auxDelete);
 
-    let param = 
-                {
-                    headers: {"Content-type":   "application/json; charset= UTF-8"},
-                    body: JSON.stringify(auxDelete),
-                    method: "DELETE"
-                }
+//     let param = 
+//                 {
+//                     headers: {"Content-type":   "application/json; charset= UTF-8"},
+//                     body: JSON.stringify(auxDelete),
+//                     method: "DELETE"
+//                 }
 
-    fetch(url, param)
+//     fetch(url, param)
 
-        .then(function(data) {
+//         .then(function(data) {
 
-            return data.json()
+//             return data.json()
            
-        })
+//         })
 
-        .then(function(result) {
+//         .then(function(result) {
 
-            if (result.error)
-                showToast("ERROR:" + result.mensaje, "bg-danger")
-            else
+//             if (result.error)
+//                 showToast("ERROR:" + result.mensaje, "bg-danger")
+//             else
 
-            showToast("Alumno eliminado correctamente", "bg-success" )
+//             showToast("Alumno eliminado correctamente", "bg-success" )
          
-                console.log(result)
-        })
+//                 console.log(result)
+//         })
 
-        .catch(function(error) {
-            console.log(error)
-        })
-
-
-}
+//         .catch(function(error) {
+//             console.log(error)
+//         })
 
 
+// }
 
-function validar(newAlumno) {
 
-    let resultado = false
 
-    if (newAlumno.first_name == "" || newAlumno.first_name == "null") {
+// function validar(newAlumno) {
 
-        showToast("AVISO: Campo First Name no informado", "bg-warning")
+//     let resultado = false
 
-    } 
-    else if (newAlumno.last_name == "" || newAlumno.last_name == "null") {
+//     if (newAlumno.first_name == "" || newAlumno.first_name == "null") {
 
-        showToast("AVISO: Campo Last Name no informado", "bg-warning")
+//         showToast("AVISO: Campo First Name no informado", "bg-warning")
 
-    // }
-    // else if (newAlumno.income_year == "" || newAlumno.income_year == "null") {
+//     } 
+//     else if (newAlumno.last_name == "" || newAlumno.last_name == "null") {
+
+//         showToast("AVISO: Campo Last Name no informado", "bg-warning")
+
+//     // }
+//     // else if (newAlumno.income_year == "" || newAlumno.income_year == "null") {
     
-    //     showToast("AVISO: Campo Income Year no informado", "bg-warning")   
+//     //     showToast("AVISO: Campo Income Year no informado", "bg-warning")   
     
-    }
-    else
-        resultado = true
+//     }
+//     else
+//         resultado = true
 
-    return resultado
+//     return resultado
 
-}
+// }
 
 
-function showToast(message, color)
-{
-    document.getElementById("toastText").innerText=message;
-    let toastElement  = document.getElementById('toast')
+// function showToast(message, color)
+// {
+//     document.getElementById("toastText").innerText=message;
+//     let toastElement  = document.getElementById('toast')
 
-    toastElement.className = toastElement.className.replace("bg-warning").replace("bg-danger") + " "  + color;
+//     toastElement.className = toastElement.className.replace("bg-warning").replace("bg-danger") + " "  + color;
 
-    let toast = new bootstrap.Toast(toastElement)
-    toast.show()
-}
+//     let toast = new bootstrap.Toast(toastElement)
+//     toast.show()
+// }
 
 
 

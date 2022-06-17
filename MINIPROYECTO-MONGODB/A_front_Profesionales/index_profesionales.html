@@ -27,10 +27,10 @@
 
 
           <form class="d-flex" role="search">
-            <button type="button" class="btn btn-outline-warning" type="reset" onclick = "getAlumnos()">Mostrar</button>
-            <button type="button" class="btn btn-outline-warning" type="reset" onclick = "postAlumnos()">Crear</button>
-            <button type="button" class="btn btn-outline-warning" type="reset" onclick = "putAlumnos()">Actualizar</button>
-            <button type="button" class="btn btn-outline-warning" type="reset" onclick = "deleteAlumnos()">Eliminar</button>
+            <button type="button" class="btn btn-outline-warning" type="reset" onclick = "getProfesionales()">Mostrar</button>
+            <button type="button" class="btn btn-outline-warning" type="reset" onclick = "postProfesionales()">Crear</button>
+            <button type="button" class="btn btn-outline-warning" type="reset" onclick = "putProfesionales()">Actualizar</button>
+            <button type="button" class="btn btn-outline-warning" type="reset" onclick = "deleteProfesionales()">Eliminar</button>
           </form> 
       </nav>
     </div>
@@ -52,38 +52,62 @@
                       </div>
 
                       <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="First Name"  aria-label="First Name" aria-describedby="button-addon2" id = "first_name">
+                        <input type="text" class="form-control" placeholder="Profesional ID"  aria-label="Profesional ID" aria-describedby="button-addon2" id = "id">
+                      </div>
+
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Name"  aria-label="Name" aria-describedby="button-addon2" id = "name">
                       </div>
                     
                       <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Last Name"  aria-label="Last Name" aria-describedby="button-addon2" id = "last_name">
+                        <input type="text" class="form-control" placeholder="Age"  aria-label="Age" aria-describedby="button-addon2" id = "age">
                       </div>
 
                       <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Income Year"  aria-label="Income Year" aria-describedby="button-addon2" id = "income_year">
+                        <input type="text" class="form-control" placeholder="Weight"  aria-label="Weight" aria-describedby="button-addon2" id = "weight">
                       </div>
 
                       <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Student Id"  aria-label="Student Id" aria-describedby="button-addon2" id = "id">
+                        <input type="text" class="form-control" placeholder="Height"  aria-label="Height" aria-describedby="button-addon2" id = "height">
     
                       </div>
 
-                      <!-- <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Group Id"  aria-label="Group Id" aria-describedby="button-addon2" id = "height">
-                      </div> -->
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="HairColor"  aria-label="HairColor" aria-describedby="button-addon2" id = "hairColor">
+                      </div>
 
-                      <!-- <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="ID"  aria-label="ID" aria-describedby="button-addon2" id = "id">
-                      </div> -->
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="EyeColor"  aria-label="EyeColor" aria-describedby="button-addon2" id = "eyeColor">
+                      </div>
+                     
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Race"  aria-label="Race" aria-describedby="button-addon2" id = "race">
+                      </div>
+
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="IsRetired"  aria-label="IsRetired" aria-describedby="button-addon2" id = "isRetired">
+                      </div>
+
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Nationality"  aria-label="Nationality" aria-describedby="button-addon2" id = "nationality">
+                      </div>
+
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="OscarsNumber"  aria-label="OscarsNumber" aria-describedby="button-addon2" id = "oscarsNumber">
+                      </div>
+
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Profession"  aria-label="Profession" aria-describedby="button-addon2" id = "profession">
+                      </div>
+
 
                   </form>
               </div>
 
-              
-
+            
               <div class = "contenedor-derecho">
                   
-                  <div class ="displayAlumnos">
+                  <div class ="displayProfesionales">
 
                       <div id = "displayJson"></div>
                       <!-- <div id = "displayJson2"></div> -->

@@ -1,42 +1,32 @@
-// class Professional{
-//     public name:string
-//     public age:number
-//     public genre:string
-//     public weight:number
-//     public height:number
-//     public hairColor:string
-//     public eyeColor:string
-//     public race:string
-//     public isRetired:boolean
-//     public nationality:string
-//     public oscarsNumber:number
-//     public profession:string 
+const {Schema, model} = require("mongoose");
 
-//     constructor( name:string , age:number , genre:string , weight:number , height:number , hairColor:string ,
-//         eyeColor:string , race:string , isRetired:boolean , nationality:string , oscarsNumber:number , profession:string){
-  
-//             this.name         = name;
-//             this.age          = age;
-//             this.genre        = genre;
-//             this.weight       = weight
-//             this.height       = height;
-//             this.hairColor    = hairColor;
-//             this.eyeColor     = eyeColor;
-//             this.race         = race;
-//             this.isRetired    = isRetired;
-//             this.nationality  = nationality;
-//             this.oscarsNumber = oscarsNumber;
-//             this.profession   = profession
+const professionalSchema = new Schema(
+    {
+        name:              String,
+        age:               Number,
+        genre:             String,
+        weight:            Number,
+        height:            Number,
+        hairColor:         String,
+        eyeColor:          String, 
+        race:              String,
+        isRetired:         Boolean,
+        nationality:       Boolean,
+        oscarsNumber:      Number,
+        profession:        String,  
 
-//     }
+    });
+    
+module.exports = model("Professional", professionalSchema, "Professional" )   
 
-//     //METDOS 
 
-// //     printValue():void{
-// //         console.log("name: " + this.name  + "\n" + "age: " + this.age + "\n" + "genre: " + this.genre + "\n" + 
-// //         "weight: " + this.weight + "\n" + "height: " + this.height + "\n" + "Hair Color: " + this.hairColor + "\n"+
-// //         "Eye Color: " + this.eyeColor + "\n"+ "Race: " + this.race + "\n" + "Is Retired: " + this.isRetired + "\n"+
-// //         "nationality: " + this.nationality + "\n" + "Oscars Number: " + this.oscarsNumber + "\n" + "Profession: " + this.profession)
-// //     }
 
-// }
+
+
+
+
+
+
+
+
+
