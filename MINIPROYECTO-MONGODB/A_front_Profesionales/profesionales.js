@@ -5,25 +5,15 @@ class Profesionales {
     genre;
     weight;
     height;
-    hairColor;
-    eyeColor;
-    race;
-    isRetired;
-    nationality;
     oscarsNumber;
     profession;
 
-    constructor(name, age, genre, weight, height, hairColor, eyeColor, race, isRetired, nationality, oscarsNumber,profession) {
+    constructor(name, age, genre, weight, height, oscarsNumber, profession) {
         this.name           = name;
         this.age            = age;
         this.genre          = genre;
         this.weight         = weight;
         this.height         = height;
-        this.hairColor      = hairColor;
-        this.eyeColor       = eyeColor;
-        this.race           = race;
-        this.isRetired      = isRetired;  
-        this.nationality    = nationality;
         this.oscarsNumber   = oscarsNumber;
         this.profession     = profession;
 
@@ -33,11 +23,9 @@ class Profesionales {
     
 
 
-
 function getProfesionales() {
 
     let newProfesional   = "";
-
 
     let id = document.getElementById("id").value;
     let url;
@@ -89,12 +77,7 @@ function getProfesionales() {
                                         <li>Age:            ${result[i].age}</li>           
                                         <li>Genre:          ${result[i].genre}</li>
                                         <li>Weight:         ${result[i].weight}</li>
-                                        <li>Height:         ${result[i].height}</li>
-                                        <li>HairColor:      ${result[i].hairColor}</li>
-                                        <li>EyeColor:       ${result[i].eyeColor}</li>
-                                        <li>Race:           ${result[i].race}</li>
-                                        <li>IsRetired:      ${result[i].isRetired}</li>
-                                        <li>Nationality:    ${result[i].nationality}</li>    
+                                        <li>Height:         ${result[i].height}</li>   
                                         <li>OscarsNumber:   ${result[i].oscarsNumber}</li>
                                         <li>Profession:     ${result[i].profession}</li>
                                     </ul> `
@@ -113,12 +96,7 @@ function getProfesionales() {
                                         <li>Age:            ${result.age}</li>           
                                         <li>Genre:          ${result.genre}</li>
                                         <li>Weight:         ${result.weight}</li>
-                                        <li>Height:         ${result.height}</li>
-                                        <li>HairColor:      ${result.hairColor}</li>
-                                        <li>EyeColor:       ${result.eyeColor}</li>
-                                        <li>Race:           ${result.race}</li>
-                                        <li>IsRetired:      ${result.isRetired}</li>
-                                        <li>Nationality:    ${result.nationality}</li>    
+                                        <li>Height:         ${result.height}</li> 
                                         <li>OscarsNumber:   ${result.oscarsNumber}</li>
                                         <li>Profession:     ${result.profession}</li>
                                     </ul> `
@@ -136,41 +114,38 @@ function getProfesionales() {
             console.log(err);
         })
 
-
 }
 
-
-function postAlumnos() {
+        
+function postProfesionales() {
 
     console.log("Entro en POST")
 
-    let newProfesional = new Profesional(document.getElementById("name").value,
-                                         document.getElementById("age").value,
-                                         document.getElementById("").value,
-                                         document.getElementById("").value,
-                                         document.getElementById("").value,
-                                         document.getElementById("").value,
-                                         document.getElementById("").value,
-                                         document.getElementById("").value,
-                                         document.getElementById("").value,
-                                         document.getElementById("").value,
-                                         document.getElementById("").value,
-                                         document.getElementById("").value,
-                                         document.getElementById("").value,
-                                         document.getElementById("").value)
-                               
-                           
-                            
-     console.log(newAlumno)      
-        
-    const url = "http://localhost:3000/alumnos";
+    let newProfesional = new Profesionales( document.getElementById("name").value,
+                                            document.getElementById("age").value,
+                                            document.getElementById("genre").value,
+                                            document.getElementById("weight").value,
+                                            document.getElementById("height").value,
+                                            document.getElementById("oscarsNumber").value,
+                                            document.getElementById("profession").value)
 
-    if (validar(newAlumno)) {
+                                              
+                            
+    console.log(newProfesional)      
         
+    const url = "http://localhost:3000/profesionales";
+
+    // if (validar(newProfesional)) {   
+
+    if (newProfesional != "") {
+
+        console.log("Entro por validar")
+        // validar(newProfesional)
+
         let param = 
             {
                 headers: {"Content-type":   "application/json; charset= UTF-8"},
-                body: JSON.stringify(newAlumno),
+                body: JSON.stringify(newProfesional),
                 method: "POST"
             }
 
@@ -189,9 +164,9 @@ function postAlumnos() {
             else
          
             showToast("Usuario creado correctamente", "bg-success" )
-                console.log(newAlumno)
+                console.log(newProfesional)
                 console.log(result)
-                // form-profesionales.reset();
+            //  form-profesionales.reset();
         })
 
         .catch(function(error) {
@@ -306,44 +281,63 @@ function postAlumnos() {
 
 
 
-// function validar(newAlumno) {
+function validar(newProfesional) {
 
-//     let resultado = false
+    let resultado = false
 
-//     if (newAlumno.first_name == "" || newAlumno.first_name == "null") {
+    if (newProfesional.name == "" || newAlumno.name == "null") {
 
-//         showToast("AVISO: Campo First Name no informado", "bg-warning")
+        showToast("AVISO: Campo Name no informado", "bg-warning")
 
-//     } 
-//     else if (newAlumno.last_name == "" || newAlumno.last_name == "null") {
+    } 
+    else if (newProfesional.age == "" || newProfesional.age == "null") {
 
-//         showToast("AVISO: Campo Last Name no informado", "bg-warning")
+        showToast("AVISO: Campo Age no informado", "bg-warning")
 
-//     // }
-//     // else if (newAlumno.income_year == "" || newAlumno.income_year == "null") {
+    }
+    else if (newProfesional.genre == "" || newProfesional.genre == "null") {
     
-//     //     showToast("AVISO: Campo Income Year no informado", "bg-warning")   
+        showToast("AVISO: Campo Genre no informado", "bg-warning")   
+     
+    }
+    else if (newProfesional.weight == "" || newProfesional.weight == "null") {
     
-//     }
-//     else
-//         resultado = true
+        showToast("AVISO: Campo Weight no informado", "bg-warning") 
 
-//     return resultado
+    }
+    else if (newProfesional.height == "" || newProfesional.height == "null") {
+    
+        showToast("AVISO: Campo Height no informado", "bg-warning") 
 
-// }
+    }
+    else if (newProfesional.oscarsNumber == "" || newProfesional.oscarsNumber == "null") {
+    
+        showToast("AVISO: Campo Oscars no informado", "bg-warning") 
 
-
-// function showToast(message, color)
-// {
-//     document.getElementById("toastText").innerText=message;
-//     let toastElement  = document.getElementById('toast')
-
-//     toastElement.className = toastElement.className.replace("bg-warning").replace("bg-danger") + " "  + color;
-
-//     let toast = new bootstrap.Toast(toastElement)
-//     toast.show()
-// }
+    }
+    else if (newProfesional.profession == "" || newProfesional.profession == "null") {
+    
+        showToast("AVISO: Campo Profession no informado", "bg-warning")     
 
 
+    }
+    else
+        resultado = true
+
+    return resultado
+
+}
+
+
+function showToast(message, color)
+{
+    document.getElementById("toastText").innerText=message;
+    let toastElement  = document.getElementById('toast')
+
+    toastElement.className = toastElement.className.replace("bg-warning").replace("bg-danger") + " "  + color;
+
+    let toast = new bootstrap.Toast(toastElement)
+    toast.show()
+}
 
 

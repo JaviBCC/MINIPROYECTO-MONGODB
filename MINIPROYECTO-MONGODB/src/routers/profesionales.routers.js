@@ -1,6 +1,6 @@
 const {Router} = require ("express")
 const router = Router();
-const photosCtrl = require("../controller/profesionales.controller")
+const profesionalesCtrl = require("../controller/profesionales.controller")
 
 
 // PROFESIONALES //
@@ -13,7 +13,7 @@ router.get("/profesionales", profesionalesCtrl.getProfesionales);
 
 router.post("/profesionales", profesionalesCtrl.postProfesionales);
 
-// router.put("/profesionales", profesionales.putProfesionales);
+router.put("/profesionales", profesionales.putProfesionales);
 
 // router.delete("/profesionales", profesionales.deleteProfesionales);
 

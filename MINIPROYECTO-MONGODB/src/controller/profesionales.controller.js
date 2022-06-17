@@ -1,4 +1,4 @@
-let Profesional    = require("../model/profesionales.Schema");
+let Profesional     = require("../model/profesionales.Schema");
 const connection    = require("../database")
 const mongoose      = require('mongoose')
 
@@ -33,7 +33,7 @@ function getProfesionales(request, response)
     } 
     else
     {
-        Profesional.findOne({name: request.params.id})
+        Profesional.findById(request.params.id)
         .then( (user) =>
         {
             console.log(user);
@@ -56,11 +56,6 @@ function postProfesionales(request, response)
                                           genre:        request.body.genre,   
                                           weight:       request.body.weight,
                                           height:       request.body.height,
-                                          hairColor:    request.body.hairColor,
-                                          eyeColor:     request.body.eyeColor,
-                                          race:         request.body.race,
-                                          isRetired:    request.body.isRetired,
-                                          nationality:  request.body.nationality,
                                           oscarsNumber: request.body.oscarsNumber,                
                                           profession:   request.body.profession}) 
                                           
@@ -83,4 +78,42 @@ function postProfesionales(request, response)
 
 
 
-module.exports = {getStart, getProfesionales, postProfesionales};
+function putProfesionales(request, response) 
+{
+        let myName          = request.body.name;
+        let myAge           = request.body.age;
+        let myGenre         = request.body.genre;
+        let myWeight        = request.body.weight;
+        let myHeight        = request.body.height;
+        let myOscarsNumber  = request.body.oscarsNumber;
+        let myProfession    = request.body.profession;
+
+    
+
+        Photo.updateOne({name: myName}, 
+                        {description: myDescription})
+
+        .then( (user) =>
+        {
+            console.log("Dato Correctamente Modificado")
+            console.log(user);
+            response.send(user);
+            mongoose.disconnect();
+
+        })
+
+        .catch( (err) =>
+        {
+            console.log(err);
+            process.exit(-1);
+        })  
+}
+
+
+
+
+
+
+
+
+module.exports = {getStart, getProfesionales, postProfesionales, putProfesionales};

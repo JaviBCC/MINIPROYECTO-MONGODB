@@ -1,22 +1,22 @@
-const {Router} = require ("express")
-const router = Router();
-const photosCtrl = require("../controller/peliculas.controller")
+// const {Router} = require ("express")
+// const router = Router();
+// const peliculasCtrl = require("../controller/peliculas.controller")
 
 
-// PELIICULAS //
+// // PELIICULAS //
 
-router.get("/", peliculasCtrl.getStart);
+// router.get("/", peliculasCtrl.getStart);
 
-router.get("/peliculas/:id", peliculasCtrl.getPeliculas);
+// router.get("/peliculas/:id", peliculasCtrl.getPeliculas);
 
-router.get("/peliculas", peliculasCtrl.getPeliculas);
+// router.get("/peliculas", peliculasCtrl.getPeliculas);
 
-router.post("/peliculas", peliculasCtrl.postPeliculas);
+// router.post("/peliculas", peliculasCtrl.postPeliculas);
 
-router.put("/peliculas", peliculasCtrl.putPeliculas);
+// router.put("/peliculas", peliculasCtrl.putPeliculas);
 
-router.delete("/peliculas", peliculasCtrl.deletePeliculas);
+// router.delete("/peliculas", peliculasCtrl.deletePeliculas);
 
 
 
-module.exports = router;
+// module.exports = router;
