@@ -9,7 +9,8 @@ const professionalSchema = new mongoose.Schema(
         weight:            Number,
         height:            Number,
         oscarsNumber:      Number,
-        profession:        String
+        profession:        String,
+        
 
     })
     

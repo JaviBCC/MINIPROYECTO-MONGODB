@@ -1,22 +1,36 @@
-// const {Router} = require ("express")
-// const router = Router();
-// const peliculasCtrl = require("../controller/peliculas.controller")
+const {Router} = require ("express")
+const router = Router();
+const peliculasCtrl = require("../controller/peliculas.controller")
 
 
 // // PELIICULAS //
 
-// router.get("/", peliculasCtrl.getStart);
+router.get("/", peliculasCtrl.getStart);
 
-// router.get("/peliculas/:id", peliculasCtrl.getPeliculas);
+router.get("/peliculas/:id", peliculasCtrl.getPeliculas);
 
-// router.get("/peliculas", peliculasCtrl.getPeliculas);
+router.get("/peliculas", peliculasCtrl.getPeliculas);
 
-// router.post("/peliculas", peliculasCtrl.postPeliculas);
+router.get("/peliculas/actors/:id", peliculasCtrl.getPeliculasActor)
 
-// router.put("/peliculas", peliculasCtrl.putPeliculas);
+router.get("/peliculas/director/:id", peliculasCtrl.getPeliculasDirector)
 
-// router.delete("/peliculas", peliculasCtrl.deletePeliculas);
+router.get("/peliculas/guionista/:id", peliculasCtrl.getPeliculasGuionista)
+
+router.get("/peliculas/productora/:id", peliculasCtrl.getPeliculasProductora)
+
+router.post("/peliculas", peliculasCtrl.postPeliculas);
+
+router. post("/peliculas/actors/", peliculasCtrl.postPeliculasActor);
+
+// router.post("/peliculas/director/", peliculasCtrl.postPeliculasDirector);
+
+// router.post("/peliculas/guionista/", peliculasCtrl.postPeliculasGuionista);
+
+router.put("/peliculas", peliculasCtrl.putPeliculas);
+
+router.delete("/peliculas", peliculasCtrl.deletePeliculas);
 
 
 
-// module.exports = router;
+module.exports = router;

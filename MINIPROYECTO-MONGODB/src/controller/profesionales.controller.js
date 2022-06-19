@@ -65,7 +65,7 @@ function postProfesionales(request, response)
 
     .then( (user) => 
     {
-        console.log("Profesional guardado correctamente")
+        console.log("Profesional Guardado Correctamente")
         console.log(user);
         response.send(user);
     })
@@ -80,26 +80,25 @@ function postProfesionales(request, response)
 
 function putProfesionales(request, response) 
 {
-        let myName          = request.body.name;
-        let myAge           = request.body.age;
-        let myGenre         = request.body.genre;
-        let myWeight        = request.body.weight;
-        let myHeight        = request.body.height;
-        let myOscarsNumber  = request.body.oscarsNumber;
-        let myProfession    = request.body.profession;
+     
+    if (request.query._id != null) {    
 
-    
+            Profesional.updateOne({_id: request.query._id},    
 
-        Photo.updateOne({name: myName}, 
-                        {description: myDescription})
+                                   {name:            request.body.name, 
+                                    age:             request.body.age, 
+                                    genre:           request.body.genre, 
+                                    weight:          request.body.weight, 
+                                    height:          request.body.height,
+                                    oscarsNumber:    request.body.oscarsNumber,
+                                    profession:      request.body.profession})    
+        
 
         .then( (user) =>
         {
-            console.log("Dato Correctamente Modificado")
+            console.log("Profesional Modificado Correctamente")
             console.log(user);
             response.send(user);
-            mongoose.disconnect();
-
         })
 
         .catch( (err) =>
@@ -107,13 +106,34 @@ function putProfesionales(request, response)
             console.log(err);
             process.exit(-1);
         })  
+    }
+}
+
+
+function deleteProfesionales(request, response) 
+{
+    
+    if (request.query._id != "") { 
+ 
+         Profesional.deleteOne({_id: request.query._id})
+ 
+         .then( (user) =>
+         {
+             console.log("Profesional Borrado Correctamente")
+             console.log(user);
+             response.send(user);
+         })
+ 
+         .catch( (err) =>
+         {
+             console.log(err);
+             process.exit(-1);
+         })
+     } 
+
 }
 
 
 
 
-
-
-
-
-module.exports = {getStart, getProfesionales, postProfesionales, putProfesionales};
+module.exports = {getStart, getProfesionales, postProfesionales, putProfesionales, deleteProfesionales};

@@ -1,6 +1,7 @@
+let mongoose = require("mongoose");
 const {Schema, model} = require("mongoose");
 
-const peliculasSchema = new Schema(
+const peliculasSchema = new mongoose.Schema(
     {
         title:              String,
         releaseYear:        Number,

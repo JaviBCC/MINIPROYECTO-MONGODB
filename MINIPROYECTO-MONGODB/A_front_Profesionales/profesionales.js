@@ -8,7 +8,7 @@ class Profesionales {
     oscarsNumber;
     profession;
 
-    constructor(name, age, genre, weight, height, oscarsNumber, profession) {
+    constructor(name, age, genre, weight, height, oscarsNumber, profession, profesional_id) {
         this.name           = name;
         this.age            = age;
         this.genre          = genre;
@@ -71,7 +71,7 @@ function getProfesionales() {
                     console.log("Paso por For" + i)
 
 
-                    newProfesional += ` <h4 class = "h4_datRes">PROFESIONALES</h4>
+                    newProfesional += ` <h4 class = "h4_datRes">PROFESIONAL</h4>
                                     <ul>
                                         <li>Name:           ${result[i].name}</li>
                                         <li>Age:            ${result[i].age}</li>           
@@ -177,107 +177,110 @@ function postProfesionales() {
 }
 
 
-// function putAlumnos() {
+function putProfesionales() {
 
-//     let id = document.getElementById("id").value;
+    let id = document.getElementById("id").value;
 
-//     const url = `http://localhost:3000/alumnos/?id=${id}`
+    const url = `http://localhost:3000/profesionales/?_id=${id}`
   
-//     console.log("Indice del PUT");
+    console.log("Indice del PUT");
       
   
-//     let auxPut = 
-//                     {first_name:      document.getElementById("first_name").value,
-//                      last_name:       document.getElementById("last_name").value,
-//                      student_id:      document.getElementById("id").value
-//                     }
+    let auxPut = 
+                    {
+                     name:              document.getElementById("name").value,
+                     age:               document.getElementById("age").value,
+                     genre:             document.getElementById("genre").value,
+                     weight:            document.getElementById("weight").value,      
+                     height:            document.getElementById("height").value,
+                     oscarsNumber:      document.getElementById("oscarsNumber").value,
+                     profession:        document.getElementById("profession").value,            
+                    }
 
 
-//     let param = 
-//                 {
-//                     headers: {"Content-type":   "application/json; charset= UTF-8"},
-//                     body: JSON.stringify(auxPut),
-//                     method: "PUT"
-//                 }
+    let param = 
+                {
+                    headers: {"Content-type":   "application/json; charset= UTF-8"},
+                    body: JSON.stringify(auxPut),
+                    method: "PUT"
+                }
     
-//     console.log(id);
-//     console.log(auxPut);
-//     console.log(url);
-//     console.log(param);
+    console.log(id);
+    console.log(auxPut);
+    console.log(url);
+    console.log(param);
 
-//     fetch(url, param)
+    fetch(url, param)
 
-//         .then(function(data) {
+        .then(function(data) {
 
-//             return data.json()
+            return data.json()
            
-//         })
+        })
 
-//         .then(function(result) {
+        .then(function(result) {
 
-//             if (result.error)
-//                 showToast("ERROR:" + result.mensaje, "bg-danger")
-//             else
+            if (result.error)
+                showToast("ERROR:" + result.mensaje, "bg-danger")
+            else
+                showToast("Profesional actualizado correctamente", "bg-success" )
+                // console.log(newProfesional)
+                // console.log(result)
+        })
 
-//             showToast("Usuario actualizado correctamente", "bg-success" )
-//                 // console.log(newAlumno)
-//                 // console.log(result)
-//         })
+        .catch(function(error) {
+            console.log(error)
+        })
 
-//         .catch(function(error) {
-//             console.log(error)
-//         })
-
-// }
+}
 
 
-// function deleteAlumnos() {
+function deleteProfesionales() {
 
     
-//     let id = document.getElementById("id").value;
+    let id = document.getElementById("id").value;
 
-//     const url = `http://localhost:3000/alumnos/?id=${id}`
+    const url = `http://localhost:3000/profesionales/?_id=${id}`
 
-//     console.log("Indice del DELETE");
-//     console.log(id)
+    console.log("Indice del DELETE");
+    console.log(id)
 
                
-//     let auxDelete =  {id:   document.getElementById("id").value,}
+    let auxDelete =  {id:   document.getElementById("id").value,}
 
-//     console.log(auxDelete);
+    console.log(auxDelete);
 
-//     let param = 
-//                 {
-//                     headers: {"Content-type":   "application/json; charset= UTF-8"},
-//                     body: JSON.stringify(auxDelete),
-//                     method: "DELETE"
-//                 }
+    let param = 
+                {
+                    headers: {"Content-type":   "application/json; charset= UTF-8"},
+                    body: JSON.stringify(auxDelete),
+                    method: "DELETE"
+                }
 
-//     fetch(url, param)
+    fetch(url, param)
 
-//         .then(function(data) {
+        .then(function(data) {
 
-//             return data.json()
+            return data.json()
            
-//         })
+        })
 
-//         .then(function(result) {
+        .then(function(result) {
 
-//             if (result.error)
-//                 showToast("ERROR:" + result.mensaje, "bg-danger")
-//             else
+            if (result.error)
+                showToast("ERROR:" + result.mensaje, "bg-danger")
+            else
 
-//             showToast("Alumno eliminado correctamente", "bg-success" )
+            showToast("Profesional eliminado correctamente", "bg-success" )
          
-//                 console.log(result)
-//         })
+                console.log(result)
+        })
 
-//         .catch(function(error) {
-//             console.log(error)
-//         })
+        .catch(function(error) {
+            console.log(error)
+        })
 
-
-// }
+}
 
 
 
@@ -285,7 +288,7 @@ function validar(newProfesional) {
 
     let resultado = false
 
-    if (newProfesional.name == "" || newAlumno.name == "null") {
+    if (newProfesional.name == "" || newProfesional.name == "null") {
 
         showToast("AVISO: Campo Name no informado", "bg-warning")
 

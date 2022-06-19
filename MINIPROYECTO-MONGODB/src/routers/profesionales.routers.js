@@ -13,9 +13,9 @@ router.get("/profesionales", profesionalesCtrl.getProfesionales);
 
 router.post("/profesionales", profesionalesCtrl.postProfesionales);
 
-router.put("/profesionales", profesionales.putProfesionales);
+router.put("/profesionales", profesionalesCtrl.putProfesionales);
 
-// router.delete("/profesionales", profesionales.deleteProfesionales);
+router.delete("/profesionales", profesionalesCtrl.deleteProfesionales);
 
 
 

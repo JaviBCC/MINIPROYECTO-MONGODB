@@ -1,29 +1,58 @@
-class Notas {
-    student_id;
-    subject_id;
-    date;
-    mark
+class Peliculas {
+    title;
+    releaseYear;
+    actors;
+    nacionality;
+    director;
+    writer;
+    language;
+    plataform;
+    isMCU;
+    mainCharacterName;
+    producer;
+    distributor;
+    genre;
 
-    constructor(student_id, subject_id, date, mark) {
-            this.student_id     = student_id;
-            this.subject_id     = subject_id;
-            this.date           = date;
-            this.mark           = mark;     
+    constructor(title, releaseYear, actors, nacionality, director, writer, language, plataform, 
+                isMCU, mainCharacterName, producer, distributor, genre) {
+
+        this.title              = title;
+        this.releaseYear        = releaseYear;
+        this.actors             = actors;
+        this.nacionality        = nacionality;
+        this.director           = director;
+        this.writer             = writer;
+        this.language           = language;
+        this.plataform          = plataform;
+        this.isMCU              = isMCU;
+        this.mainCharacterName  = mainCharacterName;
+        this.producer           = producer;
+        this.distributor        = distributor;
+        this.genre              = genre;
+
     }
+
 }
+    
 
 
+function getPeliculas() {
 
-function getNotas() {
-
-    let newMark   = "";
-
+    let newPelicula   = "";
 
     let id = document.getElementById("id").value;
     let url;
 
+    if(id){
 
-        url = `http://localhost:3000/notas/${id}`;
+        url = `http://localhost:3000/peliculas/${id}`;
+        console.log(url);
+
+    } else {
+
+        url =`http://localhost:3000/peliculas`
+
+    }
 
 
         let param =
@@ -31,10 +60,6 @@ function getNotas() {
             headers: {"Content-type": "application/json; charset = UTF-8"},
             method: "GET"
         }
-
-        console.log(url);
-        console.log(param);
-
 
         fetch(url, param)
 
@@ -48,7 +73,7 @@ function getNotas() {
 
             console.log("Entro por getElement")
             console.log(result);
-            console.log(result.mark);
+            console.log(result.title);
 
             if (result.length > 0) {
 
@@ -58,37 +83,44 @@ function getNotas() {
 
                     console.log("Paso por For" + i)
 
-                    newMark += ` <h4 class = "h4_datRes">NOTA</h4>
 
+                    newPelicula += ` <h4 class = "h4_datRes">PELICULA</h4>
                                     <ul>
-                                        <li>Student:        ${result[i].student_id}</li>
-                                        <li>Subject:        ${result[i].subject_id}</li>
-                                        <li>Date:           ${result[i].date}</li>
-                                        <li>Mark:           ${result[i].mark}</li>
-                                        <br>
+                                        <li>Title:           ${result[i].title}</li>
+                                        <li>Release Year:    ${result[i].releaseYear}</li>           
+                                        <li>Actors:          ${result[i].actors}</li>
+                                        <li>Nacionality:     ${result[i].nacionality}</li>
+                                        <li>Director:        ${result[i].director}</li>   
+                                        <li>Writer:          ${result[i].writer}</li>
+                                        <li>Producer:        ${result[i].producer}</li>
+                                        <li>Genre:           ${result[i].genre}</li>         
                                     </ul> `
+
                 }
                                                  
             } else {
     
-                    console.log("Voy a imprimir un solo elemento")
-                    console.log(result);
-                    
-                    newMark = ` <h4 class = "h4_datRes">NOTA</h4>
+                        console.log("Voy a imprimir un solo elemento")
+                        console.log(result);
+                        
+                        newPelicula = ` <h4 class = "h4_datRes">PELICULA</h4> 
 
-                                    <ul>
-                                        <li>Student:      ${result.student_id}</li>
-                                        <li>Subject:      ${result.subject_id}</li>
-                                        <li>Date:         ${result.date}</li>
-                                        <li>Mark:         ${result.mark}</li>
-                                        <br>
-                                    </ul> `
+                                        <ul>
+                                            <li>Title:           ${result.title}</li>
+                                            <li>Release Year:    ${result.releaseYear}</li>           
+                                            <li>Actors:          ${result.actors}</li>
+                                            <li>Nacionality:     ${result.nacionality}</li>
+                                            <li>Director:        ${result.director}</li>   
+                                            <li>Writer:          ${result.writer}</li>
+                                            <li>Producer:        ${result.producer}</li>
+                                            <li>Genre:           ${result.genre}</li>       
+                                        </ul> `
 
                                              
             }
                        
-            console.log(newMark);
-            document.getElementById('displayJson').innerHTML = newMark;
+            console.log(newPelicula);
+            document.getElementById('displayJson').innerHTML = newPelicula;
     
                 
             })
@@ -100,27 +132,37 @@ function getNotas() {
 }
 
 
-function postNotas() {
+
+function postPeliculas() {
 
     console.log("Entro en POST")
 
-    let newMark = new Notas(document.getElementById("id").value,
-                            document.getElementById("subject_id").value,
-                            document.getElementById("date").value,
-                            document.getElementById("mark").value)
-                               
-                           
-                            
-     console.log(newMark)      
-        
-    const url = "http://localhost:3000/notas";
+    let newPelicula = new Peliculas(document.getElementById("title").value,
+                                    document.getElementById("releaseYear").value,
+                                    document.getElementById("actors").value,
+                                    document.getElementById("nacionality").value,
+                                    document.getElementById("director").value,
+                                    document.getElementById("writer").value,
+                                    document.getElementById("producer").value,
+                                    document.getElementById("genre").value)
 
-    if (validar(newMark)) {
+                                              
+                            
+    console.log(newPelicula)      
         
+    const url = "http://localhost:3000/peliculas";
+
+    // if (validar(newProfesional)) {   
+
+    if (newPelicula != "") {
+
+        console.log("Entro por validar")
+        // validar(newPelicula)
+
         let param = 
             {
                 headers: {"Content-type":   "application/json; charset= UTF-8"},
-                body: JSON.stringify(newMark),
+                body: JSON.stringify(newPelicula),
                 method: "POST"
             }
 
@@ -138,10 +180,10 @@ function postNotas() {
                 showToast("ERROR:" + result.mensaje, "bg-danger")
             else
          
-            showToast("Nota registrada correctamente", "bg-success" )
-                console.log(newMark)
+            showToast("Pelicula creada correctamente", "bg-success" )
+                console.log(newPelicula)
                 console.log(result)
-                // form-profesionales.reset();
+            //  form-profesionales.reset();
         })
 
         .catch(function(error) {
@@ -152,20 +194,25 @@ function postNotas() {
 }
 
 
-function putNotas() {
+function putPeliculas() {
 
     let id = document.getElementById("id").value;
 
-    const url = `http://localhost:3000/notas/?id=${id}`
+    const url = `http://localhost:3000/peliculas/?_id=${id}`
   
     console.log("Indice del PUT");
       
   
     let auxPut = 
-                    {student_id:      document.getElementById("id").value,
-                     subject_id:      document.getElementById("subject_id").value,
-                     date:            document.getElementById("date").value,
-                     mark:            document.getElementById("mark").value
+                    {
+                     title:              document.getElementById("title").value,
+                     releaseYear:        document.getElementById("releaseYear").value,
+                     actors:             document.getElementById("actors").value,
+                     nacionality:        document.getElementById("nacionality").value,      
+                     director:           document.getElementById("director").value,
+                     writer:             document.getElementById("writer").value,
+                     producer:           document.getElementById("producer").value, 
+                     genre:              document.getElementById("genre").value           
                     }
 
 
@@ -194,9 +241,8 @@ function putNotas() {
             if (result.error)
                 showToast("ERROR:" + result.mensaje, "bg-danger")
             else
-
-            showToast("Usuario actualizado correctamente", "bg-success")
-                // console.log(newAlumno)
+                showToast("Pelicula actualizada correctamente", "bg-success" )
+                // console.log(newPelicula)
                 // console.log(result)
         })
 
@@ -207,19 +253,18 @@ function putNotas() {
 }
 
 
-function deleteNotas() {
+function deletePeliculas() {
 
     
     let id = document.getElementById("id").value;
 
-    const url = `http://localhost:3000/notas/?id=${id}`
+    const url = `http://localhost:3000/peliculas/?_id=${id}`
 
     console.log("Indice del DELETE");
     console.log(id)
 
                
-    let auxDelete =  {id:           document.getElementById("id").value,
-                      subject_id:   document.getElementById("subject_id").value }
+    let auxDelete =  {id:   document.getElementById("id").value,}
 
     console.log(auxDelete);
 
@@ -244,7 +289,7 @@ function deleteNotas() {
                 showToast("ERROR:" + result.mensaje, "bg-danger")
             else
 
-            showToast("Notas eliminadas correctamente", "bg-success" )
+            showToast("Pelicula eliminada correctamente", "bg-success" )
          
                 console.log(result)
         })
@@ -253,36 +298,56 @@ function deleteNotas() {
             console.log(error)
         })
 
-
 }
 
 
 
-function validar(newMark) {
+// function validar(newPelicula) {
 
-    let resultado = false
+//     let resultado = false
 
-    if (newMark.student_id == "" || newMark.student_id == "null") {
+//     if (newPelicula.title == "" || newPelicula.title == "null") {
 
-        showToast("AVISO: Campo First Name no informado", "bg-warning")
+//         showToast("AVISO: Campo Title no informado", "bg-warning")
 
-    } 
-    else if (newMark.mark == "" || newMark.mark == "null") {
+//     } 
+//     else if (newPelicula.releaseYear == "" || newPelicula.releaseYear == "null") {
 
-        showToast("AVISO: Campo Mark no informado", "bg-warning")
+//         showToast("AVISO: Campo Release Year no informado", "bg-warning")
 
-    // }
-    // else if (newAlumno.income_year == "" || newAlumno.income_year == "null") {
+//     }
+//     else if (newPelicula.actors == "" || newPelicula.actors == "null") {
     
-    //     showToast("AVISO: Campo Income Year no informado", "bg-warning")   
+//         showToast("AVISO: Campo Actors no informado", "bg-warning")   
+     
+//     }
+//     else if (newPelicula.nacionality == "" || newPelicula.nacionality == "null") {
     
-    }
-    else
-        resultado = true
+//         showToast("AVISO: Campo Nacionality no informado", "bg-warning") 
 
-    return resultado
+//     }
+//     else if (newPelicula.director == "" || newPelicula.director == "null") {
+    
+//         showToast("AVISO: Campo Director no informado", "bg-warning") 
 
-}
+//     }
+//     else if (newPelicula.writer == "" || newPelicula.writer == "null") {
+    
+//         showToast("AVISO: Campo Writers no informado", "bg-warning") 
+
+//     }
+//     else if (newPelicula.producer == "" || newPelicula.producer == "null") {
+    
+//         showToast("AVISO: Campo Producer no informado", "bg-warning")     
+
+
+//     }
+//     else
+//         resultado = true
+
+//     return resultado
+
+// }
 
 
 function showToast(message, color)
@@ -295,7 +360,6 @@ function showToast(message, color)
     let toast = new bootstrap.Toast(toastElement)
     toast.show()
 }
-
 
 
 
