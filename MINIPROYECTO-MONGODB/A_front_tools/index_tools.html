@@ -12,7 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="filtros.css">
+    <link rel="stylesheet" href="tools.css">
 
     <title>IMDB</title>
 </head>
@@ -27,11 +27,15 @@
           <a class="nav-link active" aria-current="page" href="../A_front_filtros/index_filtros.html"><img class = "filtros" src="../img/Filtros.gif"  alt="" width="95" height="44"></a>
           <a class="nav-link active" aria-current="page" href="../A_front_tools/index_tools.html"><img class = "tools" src="../img/Tool.gif"  alt="" width="95" height="44"></a>
 
+
+
           <form class="d-flex" role="search">
-            <button type="button" class="btn btn-outline-warning" type="reset" onclick = "getPeliculasActor()">Actores</button>
-            <button type="button" class="btn btn-outline-warning" type="reset" onclick = "getPeliculasDirector()">Directores</button>
-            <button type="button" class="btn btn-outline-warning" type="reset" onclick = "getPeliculasGuionista()">Guionistas</button>
-            <button type="button" class="btn btn-outline-warning" type="reset" onclick = "getPeliculasProductora()">Productora</button>
+            <button type="button" class="btn btn-outline-warning" type="reset" onclick = "postPeliculasActor()">+ Actor</button>
+            <button type="button" class="btn btn-outline-warning" type="reset" onclick = "postPeliculasDirector()">+ Director</button>
+            <button type="button" class="btn btn-outline-warning" type="reset" onclick = "postPeliculasGuionista()">+ Guionista</button>
+            <button type="button" class="btn btn-outline-warning" type="reset" onclick = "deletePeliculasActor()">- Actor</button>
+            <button type="button" class="btn btn-outline-warning" type="reset" onclick = "deletePeliculasDirector()">- Director</button>
+            <button type="button" class="btn btn-outline-warning" type="reset" onclick = "deletePeliculasGuionista()">- Guionista</button>
           </form> 
       </nav>
     </div>
@@ -49,11 +53,27 @@
 
                   <form class = "form-profesionales">
                       <div class="page-header">
-                        <h2>FILTROS PELICULAS</h2>
+                        <h2>CREACION / ELIMINACION</h2>
                       </div>
 
                       <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Search by Movie ID"  aria-label="Search by Movie ID" aria-describedby="button-addon2" id = "id">
+                        <input type="text" class="form-control" placeholder="Pelicula ID"  aria-label="Pelicula ID" aria-describedby="button-addon2" id = "id">
+                      </div>
+
+                     
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Enter the Actor to Add"  aria-label="Actors" aria-describedby="button-addon2" id = "actors">
+                      </div>
+                      
+                     
+
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Enter the Director to Add"  aria-label="Director" aria-describedby="button-addon2" id = "director">
+    
+                      </div>
+                      
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Enter the Writer to Add"  aria-label="Writer" aria-describedby="button-addon2" id = "writer">
                       </div>
 
                   </form>
@@ -62,7 +82,7 @@
             
               <div class = "contenedor-derecho">
                   
-                  <div class ="displayFiltros">
+                  <div class ="displayPeliculas">
 
                       <div id = "displayJson"></div>
                       <!-- <div id = "displayJson2"></div> -->
@@ -267,7 +287,7 @@
 
       <!-- ENLACE JAVASCRIPT-->
       <!-- <script src ="./classProfesional.js"></script> -->
-      <script src="filtros.js"></script>   
+      <script src="tools.js"></script>   
 
      
 </body>

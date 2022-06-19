@@ -13,28 +13,26 @@
     align-items:center;
 }
 
-.d-flex {
-    display:flex;
-    justify-content:space-around;
-    align-items:center;
+.profesional {
 
-}
-
-
-/* .profesional {
-    width: 80%;
+    width: 90%;
 }
 
 .pelicula {
-    margin-left: -50%;
+    margin-left: -25%;
     width: 90%;
 }
 
 
 .filtros {
-    margin-left: -105%;
+    margin-left: -60%;
     width: 90%;
-} */
+}
+
+.tools {
+    margin-left: -70%;
+    width: 90%;
+}
 
 
 .page-header h2{
@@ -147,12 +145,13 @@
 
 #displayJson {
     /* background-image: url("../img/mostrar.png"); */
-     background-image: url("../img/fondico.gif"); 
-     width: 300px;
-     background-color: #D5AE6B;
-     box-shadow: 10px 5px 10px black;
-     color: black;
-     border-radius: 4%;
-     padding-left: 3%;
+    background-image: url("../img/caretegif.gif");
+    width: 350px;
+    font-size:x-large;
+    background-color: #D5AE6B;
+    box-shadow: 10px 5px 10px black;
+    color: gold;
+    border-radius: 4%;
+    padding-left: 18%;
 
 }

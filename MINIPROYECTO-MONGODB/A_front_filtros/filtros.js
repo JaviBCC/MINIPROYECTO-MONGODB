@@ -293,172 +293,7 @@ function getPeliculasProductora() {
 
 }
 
-// function postPeliculasActor() {
 
-//     console.log("Entro en POST")
-
-//     let newPelicula = new Peliculas(document.getElementById("title").value,
-//                                     document.getElementById("releaseYear").value,
-//                                     document.getElementById("actors").value,
-//                                     document.getElementById("nacionality").value,
-//                                     document.getElementById("director").value,
-//                                     document.getElementById("writer").value,
-//                                     document.getElementById("producer").value,
-//                                     document.getElementById("genre").value)
-
-                                              
-                            
-//     console.log(newPelicula)      
-        
-//     const url = "http://localhost:3000/peliculas";
-
-//     // if (validar(newProfesional)) {   
-
-//     if (newPelicula != "") {
-
-//         console.log("Entro por validar")
-//         // validar(newPelicula)
-
-//         let param = 
-//             {
-//                 headers: {"Content-type":   "application/json; charset= UTF-8"},
-//                 body: JSON.stringify(newPelicula),
-//                 method: "POST"
-//             }
-
-//         fetch(url, param)
-
-//         .then(function(data) {
-
-//             return data.json()
-           
-//         })
-
-//         .then(function(result) {
-
-//             if (result.error)
-//                 showToast("ERROR:" + result.mensaje, "bg-danger")
-//             else
-         
-//             showToast("Pelicula creada correctamente", "bg-success" )
-//                 console.log(newPelicula)
-//                 console.log(result)
-//             //  form-profesionales.reset();
-//         })
-
-//         .catch(function(error) {
-//             console.log(error)
-//         })
-
-//     }
-// }
-
-
-// function putPeliculas() {
-
-//     let id = document.getElementById("id").value;
-
-//     const url = `http://localhost:3000/peliculas/?_id=${id}`
-  
-//     console.log("Indice del PUT");
-      
-  
-//     let auxPut = 
-//                     {
-//                      title:              document.getElementById("title").value,
-//                      releaseYear:        document.getElementById("releaseYear").value,
-//                      actors:             document.getElementById("actors").value,
-//                      nacionality:        document.getElementById("nacionality").value,      
-//                      director:           document.getElementById("director").value,
-//                      writer:             document.getElementById("writer").value,
-//                      producer:           document.getElementById("producer").value, 
-//                      genre:              document.getElementById("genre").value           
-//                     }
-
-
-//     let param = 
-//                 {
-//                     headers: {"Content-type":   "application/json; charset= UTF-8"},
-//                     body: JSON.stringify(auxPut),
-//                     method: "PUT"
-//                 }
-    
-//     console.log(id);
-//     console.log(auxPut);
-//     console.log(url);
-//     console.log(param);
-
-//     fetch(url, param)
-
-//         .then(function(data) {
-
-//             return data.json()
-           
-//         })
-
-//         .then(function(result) {
-
-//             if (result.error)
-//                 showToast("ERROR:" + result.mensaje, "bg-danger")
-//             else
-//                 showToast("Pelicula actualizada correctamente", "bg-success" )
-//                 // console.log(newPelicula)
-//                 // console.log(result)
-//         })
-
-//         .catch(function(error) {
-//             console.log(error)
-//         })
-
-// }
-
-
-// function deletePeliculas() {
-
-    
-//     let id = document.getElementById("id").value;
-
-//     const url = `http://localhost:3000/peliculas/?_id=${id}`
-
-//     console.log("Indice del DELETE");
-//     console.log(id)
-
-               
-//     let auxDelete =  {id:   document.getElementById("id").value,}
-
-//     console.log(auxDelete);
-
-//     let param = 
-//                 {
-//                     headers: {"Content-type":   "application/json; charset= UTF-8"},
-//                     body: JSON.stringify(auxDelete),
-//                     method: "DELETE"
-//                 }
-
-//     fetch(url, param)
-
-//         .then(function(data) {
-
-//             return data.json()
-           
-//         })
-
-//         .then(function(result) {
-
-//             if (result.error)
-//                 showToast("ERROR:" + result.mensaje, "bg-danger")
-//             else
-
-//             showToast("Pelicula eliminada correctamente", "bg-success" )
-         
-//                 console.log(result)
-//         })
-
-//         .catch(function(error) {
-//             console.log(error)
-//         })
-
-// }
 
 
 
@@ -510,16 +345,16 @@ function getPeliculasProductora() {
 // // }
 
 
-// function showToast(message, color)
-// {
-//     document.getElementById("toastText").innerText=message;
-//     let toastElement  = document.getElementById('toast')
+function showToast(message, color)
+{
+    document.getElementById("toastText").innerText=message;
+    let toastElement  = document.getElementById('toast')
 
-//     toastElement.className = toastElement.className.replace("bg-warning").replace("bg-danger") + " "  + color;
+    toastElement.className = toastElement.className.replace("bg-warning").replace("bg-danger") + " "  + color;
 
-//     let toast = new bootstrap.Toast(toastElement)
-//     toast.show()
-// }
+    let toast = new bootstrap.Toast(toastElement)
+    toast.show()
+}
 
 
 

@@ -13,8 +13,6 @@
     align-items:center;
 }
 
-
-
 .profesional {
 
     width: 90%;
@@ -35,6 +33,7 @@
     margin-left: -70%;
     width: 90%;
 }
+
 
 
 
@@ -80,6 +79,7 @@
 .contenedor-izquierdo{
     /* border: 2px solid yellow; */
     /* margin-top: 40%; */
+    width: 30%;
 }
 
 
@@ -139,15 +139,22 @@
 
 }
 
+/* .displayPeliculas {
+    position: relative;
+    display: inline-block;
+} */
+
+
+
 #displayJson {
     /* background-image: url("../img/mostrar.png"); */
-     background-image: url("../img/caretegif.gif");
-     width: 350px;
-     font-size:x-large;
-     background-color: #D5AE6B;
-     box-shadow: 10px 5px 10px black;
-     color: gold;
-     border-radius: 4%;
-     padding-left: 18%;
+    background-image: url("../img/caretegif.gif");
+    width: 350px;
+    font-size:x-large;
+    background-color: #D5AE6B;
+    box-shadow: 10px 5px 10px black;
+    color: gold;
+    border-radius: 4%;
+    padding-left: 18%;
 
 }

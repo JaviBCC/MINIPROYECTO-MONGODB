@@ -1,3 +1,39 @@
+// class Peliculas {
+//     title;
+//     releaseYear;
+//     actors;
+//     nacionality;
+//     director;
+//     writer;
+//     language;
+//     plataform;
+//     isMCU;
+//     mainCharacterName;
+//     producer;
+//     distributor;
+//     genre;
+
+//     constructor(title, releaseYear, actors, nacionality, director, writer, language, plataform, 
+//                 isMCU, mainCharacterName, producer, distributor, genre) {
+
+//         this.title              = title;
+//         this.releaseYear        = releaseYear;
+//         this.actors             = actors;
+//         this.nacionality        = nacionality;
+//         this.director           = director;
+//         this.writer             = writer;
+//         this.language           = language;
+//         this.plataform          = plataform;
+//         this.isMCU              = isMCU;
+//         this.mainCharacterName  = mainCharacterName;
+//         this.producer           = producer;
+//         this.distributor        = distributor;
+//         this.genre              = genre;
+
+//     }
+
+// }
+    
 class Peliculas {
     title;
     releaseYear;
@@ -5,16 +41,11 @@ class Peliculas {
     nacionality;
     director;
     writer;
-    language;
-    plataform;
-    isMCU;
-    mainCharacterName;
     producer;
-    distributor;
     genre;
 
-    constructor(title, releaseYear, actors, nacionality, director, writer, language, plataform, 
-                isMCU, mainCharacterName, producer, distributor, genre) {
+    constructor(title, releaseYear, actors, nacionality, director, writer, producer, genre) {
+            
 
         this.title              = title;
         this.releaseYear        = releaseYear;
@@ -22,19 +53,12 @@ class Peliculas {
         this.nacionality        = nacionality;
         this.director           = director;
         this.writer             = writer;
-        this.language           = language;
-        this.plataform          = plataform;
-        this.isMCU              = isMCU;
-        this.mainCharacterName  = mainCharacterName;
         this.producer           = producer;
-        this.distributor        = distributor;
         this.genre              = genre;
 
     }
 
 }
-    
-
 
 function getPeliculas() {
 
@@ -180,7 +204,7 @@ function postPeliculas() {
                 showToast("ERROR:" + result.mensaje, "bg-danger")
             else
          
-            showToast("Pelicula creada correctamente", "bg-success" )
+                showToast("Pelicula creada correctamente", "bg-success" )
                 console.log(newPelicula)
                 console.log(result)
             //  form-profesionales.reset();

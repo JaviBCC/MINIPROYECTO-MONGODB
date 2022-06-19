@@ -23,13 +23,19 @@ router.post("/peliculas", peliculasCtrl.postPeliculas);
 
 router. post("/peliculas/actors/", peliculasCtrl.postPeliculasActor);
 
-// router.post("/peliculas/director/", peliculasCtrl.postPeliculasDirector);
+router.post("/peliculas/director/", peliculasCtrl.postPeliculasDirector);
 
-// router.post("/peliculas/guionista/", peliculasCtrl.postPeliculasGuionista);
+router.post("/peliculas/guionista/", peliculasCtrl.postPeliculasGuionista);
 
 router.put("/peliculas", peliculasCtrl.putPeliculas);
 
 router.delete("/peliculas", peliculasCtrl.deletePeliculas);
+
+router.delete("/peliculas/actors", peliculasCtrl.deletePeliculasActor);
+
+router.delete("/peliculas/director", peliculasCtrl.deletePeliculasDirector);
+
+router.delete("/peliculas/guionista", peliculasCtrl.deletePeliculasGuionista);
 
 
 

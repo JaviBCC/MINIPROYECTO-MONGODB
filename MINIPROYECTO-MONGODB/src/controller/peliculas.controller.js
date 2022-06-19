@@ -174,21 +174,56 @@ function postPeliculas(request, response)
 
 function postPeliculasActor(request, response) 
 {
-    Pelicula.updateOne({id : {$eq: request.body.id}}, { $push: {actors: request.body.actors}})                                       
+     Pelicula.updateOne({_id: request.query._id}, { $push: {actors: request.body.actors}})                                      
 
-    console.log(myNewActors)
-    
-    myNewActors.save()
-
-    .then( (user) =>    
+      .then( (user) =>    
     {
-        console.log("Pelicula Guardada Correctamente")
+        console.log("Actor Guardado Correctamente")
         console.log(user);
         response.send(user);
     })
     .catch( (error) =>
     {
         console.log(error)
+        process.exit(-1);
+    })
+}
+
+
+
+function postPeliculasDirector(request, response) 
+{
+     Pelicula.updateOne({_id: request.query._id}, { $push: {director: request.body.director}})                                      
+
+      .then( (user) =>    
+    {
+        console.log("Director Guardado Correctamente")
+        console.log(user);
+        response.send(user);
+    })
+    .catch( (error) =>
+    {
+        console.log(error)
+        process.exit(-1);
+    })
+}
+
+
+
+function postPeliculasGuionista(request, response) 
+{
+     Pelicula.updateOne({_id: request.query._id}, { $push: {writer: request.body.writer}})                                      
+
+      .then( (user) =>    
+    {
+        console.log("Guionista Guardado Correctamente")
+        console.log(user);
+        response.send(user);
+    })
+    .catch( (error) =>
+    {
+        console.log(error)
+        process.exit(-1);
     })
 }
 
@@ -251,5 +286,104 @@ function deletePeliculas(request, response)
 }
 
 
+function deletePeliculasActor(request, response) 
+{
+    
+    if (request.query._id != "") { 
+ 
+        Pelicula.updateOne({_id: request.query._id}, { $pop: {actors: 1}}) 
+ 
+         .then( (user) =>
+         {
+             console.log("Actor Borrado Correctamente")
+             console.log(user);
+             response.send(user);
+         })
+ 
+         .catch( (err) =>
+         {
+             console.log(err);
+             process.exit(-1);
+         })
+     } 
+
+}
+
+
+function deletePeliculasDirector(request, response) 
+{
+    
+    if (request.query._id != "") { 
+ 
+        Pelicula.updateOne({_id: request.query._id}, { $pop: {director: 1}}) 
+ 
+         .then( (user) =>
+         {
+             console.log("Director Borrado Correctamente")
+             console.log(user);
+             response.send(user);
+         })
+ 
+         .catch( (err) =>
+         {
+             console.log(err);
+             process.exit(-1);
+         })
+     } 
+
+}
+
+
+function deletePeliculasGuionista(request, response) 
+{
+    
+    if (request.query._id != "") { 
+ 
+        Pelicula.updateOne({_id: request.query._id}, { $pop: {director: 1}}) 
+ 
+         .then( (user) =>
+         {
+             console.log("Director Borrado Correctamente")
+             console.log(user);
+             response.send(user);
+         })
+ 
+         .catch( (err) =>
+         {
+             console.log(err);
+             process.exit(-1);
+         })
+     } 
+
+}
+
+
+
+function deletePeliculasGuionista(request, response) 
+{
+    
+    if (request.query._id != "") { 
+ 
+        Pelicula.updateOne({_id: request.query._id}, { $pop: {writer: 1}}) 
+ 
+         .then( (user) =>
+         {
+             console.log("Guionista Borrado Correctamente")
+             console.log(user);
+             response.send(user);
+         })
+ 
+         .catch( (err) =>
+         {
+             console.log(err);
+             process.exit(-1);
+         })
+     } 
+
+}
+
+
+
 module.exports = {getStart, getPeliculas, getPeliculasActor, getPeliculasDirector, getPeliculasGuionista, getPeliculasProductora, 
-                  postPeliculas, postPeliculasActor, putPeliculas, deletePeliculas};
+                  postPeliculas, postPeliculasActor, postPeliculasDirector, postPeliculasGuionista, putPeliculas, 
+                  deletePeliculas, deletePeliculasActor, deletePeliculasDirector, deletePeliculasGuionista};
